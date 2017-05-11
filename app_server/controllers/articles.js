@@ -35,10 +35,12 @@ module.exports.add = function(req, res, next) {
   };
   request(
     requestOptions,
-    function (err, response, responseData) {
-      console.log(responseData);
-    }
-  );
+    function (err, response, body) {
+      if (response.statusCode === 201) {
+        var id = body.articleid;
+        res.redirect('/article/' + id);
+      }
+  });
 };
 
 /* edit article page. */
