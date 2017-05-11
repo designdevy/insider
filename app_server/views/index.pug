@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        .panel
+          .panel-body
+          .panel-body
+            // /articles
+            each article in articles
+              .row
+                br
+                .col-md-2.col-sm-3.text-center
+                  a.story-title(href='#')
+                    img.img-circle(alt='', src='http://api.randomuser.me/portraits/thumb/men/58.jpg', style='width:100px;height:100px')
+                .col-md-10.col-sm-9
+                  h3= article.title
+                  .row
+                    .col-xs-9
+                      h4
+                        span.label.label-default 97thfloor.com
+                      h4
+                        small.text-muted(style="font-family:courier,'new courier';")
+                          | 2 hours ago  • 
+                          a.text-muted(href='#') Read More
+                    .col-xs-3
+                  br
+                  br
+              hr            
+            // /articles
+            .btn-toolbar
+              .btn-group
+                a.btn.btn-primary.btnNew(href='/article/new')
+                  i.glyphicon.glyphicon-pencil
+                  |  New
+              .btn-group.pull-right
+                a.btn.btn-primary.btnCancel(href='/')
+                  |  More            
+                  i.glyphicon.glyphicon-chevron-right
+      // /col-12

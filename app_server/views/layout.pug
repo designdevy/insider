@@ -1,0 +1,98 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    title= title
+    meta(name='generator', content='Bootply')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    // bower:css
+    link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.css')
+    // endbower
+    // inject:css
+    link(rel='stylesheet', href='/css/styles.css')
+    // endinject
+    //if lt IE 9
+      script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
+  body
+    header.navbar.navbar-bright.navbar-fixed-top(role='banner')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        nav.collapse.navbar-collapse(role='navigation')
+          ul.nav.navbar-right.navbar-nav
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.glyphicon.glyphicon-search
+              ul.dropdown-menu(style='padding:6px;')
+                form.form-inline
+                  button.btn.btn-default.pull-right(type='submit')
+                    i.glyphicon.glyphicon-search
+                  input.form-control.pull-left(type='text', placeholder='Search')
+          ul.nav.navbar-right.navbar-nav
+            li
+              a(href='#') Signup
+            li
+              a(href='#') Login
+    #masthead
+      .container
+        .row
+          .col-xs-7
+            a(href='/')
+              h1
+                | Insider
+                p.lead Stamford International University's News Portal
+          .col-xs-5
+            a(href='http://www.stamford.edu/' target='_blank')            
+              h1
+                img.pull-right(alt='', src='/img/logo.jpg', style='width:35%;height:35%')
+      br
+      .container
+        .row
+          .col-md-12
+            .top-spacer
+            
+    block content
+    
+    hr
+    #footer.container
+      .row
+        .col.col-sm-12
+          h1 Follow Us
+          .btn-group
+            a.btn.btn-twitter.btn-lg(href='#')
+              i.icon-twitter.icon-large
+              |  Twitter
+            a.btn.btn-facebook.btn-lg(href='#')
+              i.icon-facebook.icon-large
+              |  Facebook
+            a.btn.btn-google-plus.btn-lg(href='#')
+              i.icon-google-plus.icon-large
+              |  Google+
+    hr
+    hr
+    footer
+      .container
+        .row
+          .col-sm-4
+            p Stamford International University
+          .col-sm-4
+            p.text-center All Rights Reserved - 2017
+          .col-sm-4
+            p.pull-right
+              | Built with 
+              i.icon-heart-empty
+              |  at 
+              a(href='http://www.bootply.com') Bootply
+    // script references
+    // bower:js
+    script(src='/lib/jquery/dist/jquery.js')
+    script(src='/lib/bootstrap/dist/js/bootstrap.js')
+    // endbower
+    // inject:js
+    // endinject

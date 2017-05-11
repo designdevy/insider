@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        .panel
+          .panel-body
+          .panel-body
+            // /articles
+            .row
+              .col-sm-6            
+                h2 Edit Article           
+            .row
+              br
+              .col-sm-6
+                .form-group
+                  label(for='title') Title:
+                  input#title.form-control(type='text')
+                  br
+                  label(for='comment') Text:
+                  textarea#comment.form-control(rows='5')
+
+            br
+            hr
+            // /articles
+            .btn-toolbar
+              .btn-group
+                a.btn.btn-success.btnEdit(href='/')
+                  i.glyphicon.glyphicon-ok
+                  |  Save
+              .btn-group.pull-right
+                a.btn.btn-danger.btnCancel(href='/')
+                  i.glyphicon.glyphicon-remove
+                  |  Cancel
+      // /col-12
