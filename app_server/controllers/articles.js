@@ -10,9 +10,28 @@ function renderHomepage(req, res, responseBody) {
   });
 }
 
+function renderDetailpage(req, res, responseBody) {
+  res.render('article', {
+    title: 'Article',
+    article: responseBody
+  });
+}
+
 /* article detail page. */
 module.exports.detail = function(req, res, next) {
-  res.render('article', {title: 'Article'})
+  var requestOptions, path, postdata;
+  path = '/api/articles/' + req.params.articleid;
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "GET",
+    json: {}
+  };
+  request(
+    requestOptions,
+    function (err, response, body) {
+      renderDetailpage(req, res, body);
+    }
+  );
 };
 
 /* show article page. */

@@ -22,8 +22,9 @@ block content
                         span.label.label-default 97thfloor.com
                       h4
                         small.text-muted(style="font-family:courier,'new courier';")
+                          - var id= article.articleid
                           | 2 hours ago  • 
-                          a.text-muted(href='#') Read More
+                          a.text-muted(href='/article/' + id) Read More
                     .col-xs-3
                   br
                   br

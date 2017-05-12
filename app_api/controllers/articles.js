@@ -4,33 +4,30 @@ var articles = mongoose.model('Articles');
 var sendJsonResponse = function(res, status, content) {
   res.status(status);
   res.json(content);
-  console.log(status + " " + content);
 };
 
 module.exports.articlesShowAll = function (req, res, next) { 
-  articles.find().select('articleid title text').exec((function(err, articles) {
+  articles.find().select('articleid title').exec((function(err, articles) {
     sendJsonResponse(res, 200, articles);
   }));
 };
 
 module.exports.articlesRead = function (req, res, next) { 
-  if (req.params && req.params.articleid) {
-    articles
-      .find({'articleid': req.params.articleid})
-      .select('title text')
-      .exec(function(err, article) {
-        if(!article || article.length == 0) {
-          sendJsonResponse(res, 404, {"message": "articleid not found"});
-          return;
-        } else if (err) {
-          sendJsonResponse(res, 400, err);
-          return;
-        }
-        sendJsonResponse(res, 200, article);
-      });
-  } else {
-    sendJsonResponse(res, fail, {"message": "No locationid in request"});
-  }
+  articles
+    .find({'articleid': req.params.articleid})
+    .select('title text')
+    .exec(function(err, article) {
+/*      if(!article || article.length == 0) {
+        sendJsonResponse(res, 404, {"message": "articleid not found"});
+        return;
+      } else if (err) {
+        sendJsonResponse(res, 400, err);
+        return;
+      } else {
+
+      }*/
+      sendJsonResponse(res, 200, article);
+    });
 };
 
 module.exports.articlesCreate = function (req, res, next) {

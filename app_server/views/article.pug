@@ -8,37 +8,37 @@ block content
           .panel-body
           .panel-body
             // /articles
-            .row
-              br
-              .col-md-2.col-sm-3.text-center
-                a.story-title(href='#')
-                  img.img-circle(alt='', src='http://api.randomuser.me/portraits/thumb/men/58.jpg', style='width:100px;height:100px')   
-              .col-md-10.col-sm-9
-                h3 Repurpose Content to Reach a Wider Audience
-                .row
-                  .col-xs-9
-                    h4
-                      span.label.label-default 97thfloor.com
-                    br
-                .row
-                  .col-sm-12
-                     .text-muted(style="font-family:courier,'new courier';")
-                      Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum                
+            each a in article
+              .row
+                br
+                .col-md-2.col-sm-3.text-center
+                  a.story-title(href='#')
+                    img.img-circle(alt='', src='http://api.randomuser.me/portraits/thumb/men/58.jpg', style='width:100px;height:100px')   
+                .col-md-10.col-sm-9
+                  h3= a.title
+                  .row
+                    .col-xs-9
+                      h4
+                        span.label.label-default 97thfloor.com
+                      br
+                  .row
+                    .col-sm-12
+                       .text-muted(style="font-family:courier,'new courier';")= a.text              
 
-            br
-            hr
-            // /articles
-            .btn-toolbar
-              .btn-group
-                a.btn.btn-primary.btnEdit(href='/')
-                  i.glyphicon.glyphicon-pencil
-                  |  Edit
-              .btn-group                
-                a.btn.btn-danger.btnDelete(href='/')
-                  i.glyphicon.glyphicon-remove
-                  |  Delete
-              .btn-group.pull-right
-                a.btn.btn-primary.btnNext(href='/')
-                  i.glyphicon.glyphicon-chevron-left
-                  |  Back
+              br
+              hr
+              // /articles
+              .btn-toolbar
+                .btn-group
+                  a.btn.btn-primary.btnEdit(href='/')
+                    i.glyphicon.glyphicon-pencil
+                    |  Edit
+                .btn-group                
+                  a.btn.btn-danger.btnDelete(href='/')
+                    i.glyphicon.glyphicon-remove
+                    |  Delete
+                .btn-group.pull-right
+                  a.btn.btn-primary.btnNext(href='/')
+                    i.glyphicon.glyphicon-chevron-left
+                    |  Back
       // /col-12
