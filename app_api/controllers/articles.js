@@ -15,18 +15,17 @@ module.exports.articlesShowAll = function (req, res, next) {
 module.exports.articlesRead = function (req, res, next) { 
   articles
     .find({'articleid': req.params.articleid})
-    .select('title text')
+    .select('title text articleid')
     .exec(function(err, article) {
-/*      if(!article || article.length == 0) {
+      if(!article || article.length == 0) {
         sendJsonResponse(res, 404, {"message": "articleid not found"});
         return;
       } else if (err) {
         sendJsonResponse(res, 400, err);
         return;
       } else {
-
-      }*/
-      sendJsonResponse(res, 200, article);
+          sendJsonResponse(res, 200, article);
+      }
     });
 };
 
@@ -56,11 +55,12 @@ module.exports.articlesCreate = function (req, res, next) {
 module.exports.articlesUpdate = function (req, res, next) { 
   articles
     .find({'articleid': req.params.articleid})
-    .select('title text')
+    .select('title text articleid')
     .exec(function(err, article) {
+    article = article[0];
       article.title = req.body.title;
       article.text = req.body.text;
-      articles.save(
+      article.save(
         function (err, article) {
         if(err){
           sendJsonResponse(res, 400, err);

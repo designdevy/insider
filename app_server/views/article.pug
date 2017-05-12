@@ -30,7 +30,8 @@ block content
               // /articles
               .btn-toolbar
                 .btn-group
-                  a.btn.btn-primary.btnEdit(href='/')
+                  - var id= a.articleid
+                  a.btn.btn-primary.btnEdit(href= id + '/edit')
                     i.glyphicon.glyphicon-pencil
                     |  Edit
                 .btn-group                

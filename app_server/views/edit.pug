@@ -8,29 +8,35 @@ block content
           .panel-body
           .panel-body
             // /articles
-            .row
-              .col-sm-6            
-                h2 Edit Article           
-            .row
+            each a in article
+              .row
+                .col-sm-6            
+                  h2 Edit Article
               br
-              .col-sm-6
-                .form-group
-                  label(for='title') Title:
-                  input#title.form-control(type='text')
-                  br
-                  label(for='comment') Text:
-                  textarea#comment.form-control(rows='5')
-
-            br
-            hr
-            // /articles
-            .btn-toolbar
-              .btn-group
-                a.btn.btn-success.btnEdit(href='/')
-                  i.glyphicon.glyphicon-ok
-                  |  Save
-              .btn-group.pull-right
-                a.btn.btn-danger.btnCancel(href='/')
-                  i.glyphicon.glyphicon-remove
-                  |  Cancel
-      // /col-12
+              form(action='', method='post', role='form')
+                - if (error == 'val')
+                  .alert.alert-danger(role="alert") All fields required, please try again
+                .row
+                  .col-sm-6
+                      .form-group
+                        label(for='title') Title:
+                        input#title.form-control(type='text', name='title' value= a.title)
+                        br
+                      .form-group
+                        label(for='text') Text:
+                        textarea#text.form-control(rows='5', name='text')
+                          =a.text
+                br
+                hr
+                // /articles
+                .btn-toolbar
+                - var id= a.articleid
+                  .btn-group
+                    button.btn.btn-success#btnEdit(type='submit')
+                      i.glyphicon.glyphicon-ok
+                      |  Save
+                  .btn-group.pull-right
+                    a.btn.btn-danger#btnCancel(href='/article/' + id)
+                      i.glyphicon.glyphicon-remove
+                      |  Cancel
+        // /col-12

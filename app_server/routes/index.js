@@ -22,4 +22,7 @@ router.get('/article/:articleid', articlesContr.detail);
 /* Edit Article Page. */
 router.get('/article/:articleid/edit', articlesContr.edit);
 
+/* Article Update Page. */
+router.post('/article/:articleid/edit', articlesContr.update);
+
 module.exports = router;

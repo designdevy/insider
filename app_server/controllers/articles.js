@@ -17,6 +17,13 @@ function renderDetailpage(req, res, responseBody) {
   });
 }
 
+function renderEditpage(req, res, responseBody) {
+  res.render('edit', {
+    title: 'Edit',
+    article: responseBody
+  });
+}
+
 /* article detail page. */
 module.exports.detail = function(req, res, next) {
   var requestOptions, path, postdata;
@@ -64,6 +71,39 @@ module.exports.add = function(req, res, next) {
 
 /* edit article page. */
 module.exports.edit = function(req, res, next) {
-  res.render('edit', {title: 'Edit'});
+  var requestOptions, path, postdata;
+  path = '/api/articles/' + req.params.articleid;
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "GET",
+    json: {}
+  };
+  request(
+    requestOptions,
+    function (err, response, body) {
+      renderEditpage(req, res, body);
+    }
+  );
+};
+
+/* update article. */
+module.exports.update = function(req, res, next) {
+  var requestOptions, path, postdata;
+  path = '/api/articles/' + req.params.articleid;
+  postdata = {
+    title: req.body.title,
+    text: req.body.text
+  };    
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "PUT",
+    json: postdata
+  };
+  request(
+    requestOptions,
+    function (err, response, body) {
+        var id = body.articleid;
+        res.redirect('/article/' + id);
+    });
 };
 
