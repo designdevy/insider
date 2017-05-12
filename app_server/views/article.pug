@@ -28,18 +28,18 @@ block content
               br
               hr
               // /articles
+              - var id= a.articleid
               .btn-toolbar
                 .btn-group
-                  - var id= a.articleid
                   a.btn.btn-primary.btnEdit(href= id + '/edit')
                     i.glyphicon.glyphicon-pencil
                     |  Edit
                 .btn-group                
-                  a.btn.btn-danger.btnDelete(href='/')
+                  a.btn.btn-danger.btnDelete(href= id + '/delete')
                     i.glyphicon.glyphicon-remove
                     |  Delete
                 .btn-group.pull-right
-                  a.btn.btn-primary.btnNext(href='/')
+                  a.btn.btn-primary.btnNext(href= '/')
                     i.glyphicon.glyphicon-chevron-left
                     |  Back
       // /col-12

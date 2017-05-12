@@ -73,7 +73,6 @@ module.exports.articlesUpdate = function (req, res, next) {
 
 
 module.exports.articlesDelete = function (req, res, next) { 
-  if(articleid){
     articles
       .remove({'articleid': req.params.articleid})
       .exec(function(err, article) {
@@ -83,7 +82,4 @@ module.exports.articlesDelete = function (req, res, next) {
           sendJsonResponse(res, 204, null);
         }
     });
-  } else {
-    sendJsonResponse(res, 404, {"message": "No locationid"})
-  }
 };

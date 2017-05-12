@@ -107,3 +107,20 @@ module.exports.update = function(req, res, next) {
     });
 };
 
+/* delete article. */
+module.exports.delete = function(req, res, next) {
+  var requestOptions, path;
+  path = '/api/articles/' + req.params.articleid;   
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "DELETE",
+    json: {}
+  };
+  request(
+    requestOptions,
+    function (err, response, body) {   
+        if(body == null){
+          res.redirect('/');
+        }
+    });
+};
