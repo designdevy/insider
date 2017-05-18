@@ -7,7 +7,7 @@ var sendJsonResponse = function(res, status, content) {
 };
 
 module.exports.articlesShowAll = function (req, res, next) { 
-  articles.find().select('articleid title').exec((function(err, articles) {
+  articles.find().select('articleid title author description urlToImage').exec((function(err, articles) {
     sendJsonResponse(res, 200, articles);
   }));
 };
@@ -15,7 +15,7 @@ module.exports.articlesShowAll = function (req, res, next) {
 module.exports.articlesRead = function (req, res, next) { 
   articles
     .find({'articleid': req.params.articleid})
-    .select('title text articleid')
+    .select('title text articleid author urlToImage')
     .exec(function(err, article) {
       if(!article || article.length == 0) {
         sendJsonResponse(res, 404, {"message": "articleid not found"});
@@ -37,7 +37,8 @@ module.exports.articlesCreate = function (req, res, next) {
       articles.create({
       articleid: thisArticleID,
       title: req.body.title,
-      text: req.body.text
+      text: req.body.text,
+      urlToImage: "https://unsplash.it/150/"
       },
       function (err, article) {
         if(err){

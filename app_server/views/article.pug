@@ -13,13 +13,13 @@ block content
                 br
                 .col-md-2.col-sm-3.text-center
                   a.story-title(href='#')
-                    img.img-circle(alt='', src='http://api.randomuser.me/portraits/thumb/men/58.jpg', style='width:100px;height:100px')   
+                    img.img-rounded(alt='', src=a.urlToImage, style='width:150px;height:150px')   
                 .col-md-10.col-sm-9
-                  h3= a.title
+                  h3(style="margin-top: 5px")= a.title
                   .row
                     .col-xs-9
                       h4
-                        span.label.label-default 97thfloor.com
+                        span.label.label-default #{a.author}
                       br
                   .row
                     .col-sm-12
