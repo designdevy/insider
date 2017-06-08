@@ -15,7 +15,7 @@ module.exports.articlesShowAll = function (req, res, next) {
 module.exports.articlesRead = function (req, res, next) { 
   articles
     .find({'articleid': req.params.articleid})
-    .select('title text articleid author urlToImage')
+    .select('author title text articleid urlToImage')
     .exec(function(err, article) {
       if(!article || article.length == 0) {
         sendJsonResponse(res, 404, {"message": "articleid not found"});
@@ -36,6 +36,7 @@ module.exports.articlesCreate = function (req, res, next) {
     console.log(thisArticleID);
       articles.create({
       articleid: thisArticleID,
+      author: req.body.author,
       title: req.body.title,
       text: req.body.text,
       urlToImage: "https://unsplash.it/150/"
@@ -56,9 +57,10 @@ module.exports.articlesCreate = function (req, res, next) {
 module.exports.articlesUpdate = function (req, res, next) { 
   articles
     .find({'articleid': req.params.articleid})
-    .select('title text articleid')
+    .select('author title text articleid')
     .exec(function(err, article) {
     article = article[0];
+      article.author = req.body.author;
       article.title = req.body.title;
       article.text = req.body.text;
       article.save(

@@ -51,6 +51,7 @@ module.exports.add = function(req, res, next) {
   var requestOptions, path, postdata;
   path = '/api/articles/new';
   postdata = {
+    author: req.body.author,
     title: req.body.title,
     text: req.body.text
   };    
@@ -91,6 +92,7 @@ module.exports.update = function(req, res, next) {
   var requestOptions, path, postdata;
   path = '/api/articles/' + req.params.articleid;
   postdata = {
+    author: req.body.author,
     title: req.body.title,
     text: req.body.text
   };    
